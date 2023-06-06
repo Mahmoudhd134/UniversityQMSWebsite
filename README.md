@@ -1,68 +1,49 @@
-# CoursesToTeachers
+# First Of All
 
-## available apis right now is:
+you must add appsettings.json file in Api dircectory contains something like that
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "default": "<YOUR-CONNECTION-STRING-HERE>"
+  },
+  "Jwt": {
+    "key": "<YOUR-TOKEN-SERCRET-KEY-HERE>"
+  },
+  "Expiry": {
+    "TokenExpiryInMinutes": 45, //token expiry date in minits
+    "RefreshTokenExpiryInDays": 10 //refresh token exipry date in days
+  }
+}
+```
+
+## Instalation Maniual
+`git clone https://github.com/Mahmoudhd134/UniversityQMSWebsite`
+
+`cd UniversityQMSWebsite`
+
+`dotnet restore`
+
+`dotnet ef database update --project logic --startup-project api`
+
+`cd front-react`
+
+`npm i`
 
 
-### Auth
-    GET
-    /Api/Auth/private
-    
-    POST
-    /Api/Auth/Register
-    
-    POST
-    /Api/Auth/Login
-    
-    GET
-    /Api/Auth/RefreshToken
-    
-    GET
-    /Api/Auth/isValidUsername/{username}
-### Doctor
-    GET
-    /Api/Doctor/{id}
+## To Run The Project 
+### First be in the root directory UniversityQMSWebsite
+### Opent two terminals
+#### First one 
+`dotnet run`
+#### Second one
+`cd front-react`
 
-    DELETE
-    /Api/Doctor/{id}
-    
-    GET
-    /Api/Doctor/{pageIndex}/{pageSize}/{usernamePrefix}
-    
-    POST
-    /Api/Doctor
-    
-    PUT
-    /Api/Doctor
-    
-    GET
-    /Api/Doctor/AssignToSubject/{doctorId}/{subjectId}
-    
-### Role
-    POST
-    /Api/Role
-    
-### Subject
-    GET
-    /Api/Subject/{pageIndex}/{pageSize}
-    
-    GET
-    /Api/Subject/{name}
-    
-    PUT
-    /Api/Subject
-    
-    POST
-    /Api/Subject
-    
-    DELETE
-    /Api/Subject/{id}
-    
-    DELETE
-    /Api/Subject/DeleteAssignedDoctor/{subjectId}
-    
-### SubjectMaterial
-    POST
-    /Api/SubjectMaterial
-    
-    DELETE
-    /Api/SubjectMaterial/{id}
+`npm run dev`
